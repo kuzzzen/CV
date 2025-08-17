@@ -123,7 +123,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
           ],
         ),
         SizedBox(height: 10),
-        Row(
+        OverflowBar(
           children: [
             Text(
               "${experience.position} ",
