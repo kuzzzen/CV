@@ -64,7 +64,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ..._experiences.map((experience) => _buildExperienceItem(experience)),
+                            ..._buildGroupedExperiences(),
                             Padding(
                               padding: const EdgeInsets.only(top: 20.0),
                               child: Center(
@@ -95,35 +95,46 @@ class _ExperienceSectionState extends State<ExperienceSection> {
     );
   }
 
-  Widget _buildExperienceItem(Experience experience) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+  List<Widget> _buildGroupedExperiences() {
+    List<Widget> widgets = [];
+    
+    for (int i = 0; i < _experiences.length; i++) {
+      Experience experience = _experiences[i];
+      bool showCompanyHeader = i == 0 || _experiences[i - 1].company != experience.company;
+      
+      if (showCompanyHeader) {
+        // Add company header
+        widgets.add(
+          Row(
+            children: [
+              Text(
+                "${experience.company} ",
+                style: GoogleFonts.instrumentSerif(
+                  textStyle: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              Text(
+                experience.location,
+                style: GoogleFonts.instrumentSerif(
+                  textStyle: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    color: Colors.grey,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+        widgets.add(SizedBox(height: 10));
+      }
+      
+      // Add position and period
+      widgets.add(
         Row(
-          children: [
-            Text(
-              "${experience.company} ",
-              style: GoogleFonts.instrumentSerif(
-                textStyle: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            Text(
-              experience.location,
-              style: GoogleFonts.instrumentSerif(
-                textStyle: TextStyle(
-                  fontStyle: FontStyle.italic,
-                  color: Colors.grey,
-                  fontSize: 20,
-                ),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 10),
-        OverflowBar(
           children: [
             Text(
               "${experience.position} ",
@@ -147,7 +158,11 @@ class _ExperienceSectionState extends State<ExperienceSection> {
             ),
           ],
         ),
-        SizedBox(height: 10),
+      );
+      widgets.add(SizedBox(height: 10));
+      
+      // Add description
+      widgets.add(
         Text(
           experience.description,
           style: GoogleFonts.instrumentSerif(
@@ -157,8 +172,14 @@ class _ExperienceSectionState extends State<ExperienceSection> {
             ),
           ),
         ),
-        SizedBox(height: 30),
-      ],
-    );
+      );
+      
+      // Add spacing between experiences (but not after the last one)
+      if (i < _experiences.length - 1) {
+        widgets.add(SizedBox(height: 30));
+      }
+    }
+    
+    return widgets;
   }
 }
