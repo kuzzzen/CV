@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'widgets/home_page.dart';
 import 'widgets/download_cv_button.dart';
 

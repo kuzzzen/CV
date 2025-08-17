@@ -56,7 +56,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
               ),
               SizedBox(height: 30),
               // Scrollable content
-              Container(
+              SizedBox(
                 height: screenHeight * 0.6,
                 child: _isLoading
                     ? Center(child: CircularProgressIndicator())
@@ -134,7 +134,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
       
       // Add position and period
       widgets.add(
-        Row(
+        OverflowBar(
           children: [
             Text(
               "${experience.position} ",
