@@ -1,0 +1,23 @@
+[
+  {
+    "company": "Barclays",
+    "location": "Prague, Czechia",
+    "position": "Software Engineer",
+    "period": "Mar 2024 - Now",
+    "description": "Continued to contribute to the risk calculation engine upon receiving a promotion to grade BA4. Became a member of the team responsible for establishing and supporting novel CI/CD pipeline, which aimed to enhance testing processes and transition to a more effective release strategy. Acquired some experience in C#."
+  },
+  {
+    "company": "Barclays",
+    "location": "Prague, Czechia",
+    "position": "Graduate Software Developer",
+    "period": "Aug 2022 - Feb 2024",
+    "description": "Utilising C++, contributed to the development and testing of an engine that facilitates communication between multiple analytics libraries within the bank. Implemented numerous critical bug fixes, collaborated on the delivery of new releases, maintained communication with customers and colleagues. Gained practical experience in Jupyter Notebooks while writing Python code to retrieve risk calculation runs from Elasticsearch. Assisted the team in relocating all project components to a single Git repository."
+  },
+  {
+    "company": "Thales",
+    "location": "Prague, Czechia",
+    "position": "Automation Tester (part-time)",
+    "period": "May 2022 – Jul 2022",
+    "description": "Used Java and JUnit to create automated tests for various projects in the Digital Identity and Security department (Thales DIS), mainly connected to the company's digital documents project allowing for identity verification through mobile devices. Left after a short period of time to accept a full-time offer from Barclays."
+  }
+]
